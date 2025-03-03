@@ -6,3 +6,9 @@ def home(request):
 
 def account(request):
     return render(request, 'account.html')
+
+def support(request):
+    return render(request, 'support.html')
+
+def news(request):
+    return render(request, 'news.html')

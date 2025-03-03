@@ -1,0 +1,30 @@
+body{
+background-color:#637FED
+}
+
+nav {
+    background-color: #333;  /* Dark background for the nav */
+    overflow: hidden;  /* Ensures that the nav items stay inside */
+}
+
+nav ul {
+    list-style-type: none;  /* Remove bullets */
+    margin: 0;
+    padding: 0;
+    display: flex;  /* Use flexbox to arrange links horizontally */
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 50px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    background-color: #333;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757;  /* Change the background when hovered */
+}

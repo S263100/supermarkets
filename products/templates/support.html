@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+
 <nav>
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
-            <li><a href="news">News</a></li>
-            <li><a href="account">Account</a></li>
-            <li><a href="support">Support</a></li>
+            <li><a class="active" href="{% url 'news' %}">News</a></li>
+            <li><a class="active" href="{% url 'account' %}">Account</a></li>
+            <li><a class="active" href="{% url 'support' %}">Support</a></li>
         </ul>
     </nav>
 
-<h1>Products</h1>
-
-<button>Click Me!</button>
+<h1>Customer Support</h1>
 </body>
 </html>
