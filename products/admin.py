@@ -3,3 +3,6 @@ from .models import Products
 
 # Register your models here.
 admin.site.register(Products)
+
+class ProductsAdmin(admin.ModelAdmin):
+    search_fields = ['name']

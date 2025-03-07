@@ -11,12 +11,34 @@
 <nav>
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
+            <li><a class="active" href="{% url 'deals' %}">Deals</a></li>
             <li><a class="active" href="{% url 'news' %}">News</a></li>
             <li><a class="active" href="{% url 'account' %}">Account</a></li>
             <li><a class="active" href="{% url 'support' %}">Support</a></li>
         </ul>
+    <form method="get" action="{% url 'product_search' %}">
+            <input class="form-control me-2" type="search" placeholder="Search Products..." name="q" value="{{ query }}">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
     </nav>
 
 <h1>Customer Account</h1>
+<div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">Username/E-Mail</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="login-btn">Login</button>
+            <p id="error-message" style="color: red;"></p>
+        </form>
+    </div>
+
+
 </body>
 </html>

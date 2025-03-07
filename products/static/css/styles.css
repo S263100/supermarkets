@@ -1,17 +1,25 @@
+h1 {
+text-align: center;
+}
+
 body{
-background-color:#637FED
+background-color: #8aca4c
 }
 
 nav {
-    background-color: #333;  /* Dark background for the nav */
-    overflow: hidden;  /* Ensures that the nav items stay inside */
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 nav ul {
-    list-style-type: none;  /* Remove bullets */
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;  /* Use flexbox to arrange links horizontally */
+    display: flex;
 }
 
 nav ul li a {
@@ -20,11 +28,147 @@ nav ul li a {
     text-align: center;
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     background-color: #333;
     transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #575757;  /* Change the background when hovered */
+    background-color: #575757;
 }
+
+nav form {
+    display: flex;
+    align-items: center;
+}
+
+nav form input {
+    padding: 7px;
+    border: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+nav form button {
+    background-color: #575757;
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+nav form button:hover {
+    background-color: #333;
+}
+
+
+.banner {
+    background-color: #edd455; !important;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 10px;
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#error-message {
+    text-align: center;
+    font-size: 14px;
+    color: red;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-box:hover {
+    transform: scale(1.05);
+}
+
+.product-box h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-box p {
+    margin: 5px 0;
+}
+
+.product-box .price {
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.product-box .stock {
+    color: #888;
+}
+
