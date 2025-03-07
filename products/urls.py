@@ -8,4 +8,5 @@ path('account/', views.account, name='account'),
 path('news/', views.news, name='news'),
     path('deals/', views.deals, name='deals'),
     path('product/search/', views.product_search, name='product_search'),
+path('product/<str:product_name>/', views.product_detail, name='product_detail'),
 ]

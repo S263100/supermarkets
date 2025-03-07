@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .models import Products
 
@@ -27,3 +27,7 @@ def product_search(request):
         products = Products.objects.all()
 
     return render(request, 'product_search.html', {'products': products, 'query': query})
+
+def product_detail(request, product_name):
+    product = get_object_or_404(Products, product_name=product_name)
+    return render(request, 'product_detail.html', {'product': product})

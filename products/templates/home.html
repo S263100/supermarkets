@@ -37,6 +37,9 @@
                 <p>Price: £{{ product.product_price }}</p>
                 <p>Stock: {{ product.product_stock }}</p>
                 <p>Points Per Purchase: {{product.product_points}}</p>
+                <button onclick="window.location='{% url 'product_detail' product.product_name %}'" class="btn btn-primary">
+    View Details
+</button>
             </div>
         {% empty %}
             <p>No products available at the moment.</p>

@@ -13,6 +13,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    border-radius: 10px;
 }
 
 nav ul {
@@ -64,10 +65,11 @@ nav form button:hover {
 
 
 .banner {
-    background-color: #edd455; !important;
+    background-color: #abe871; !important;
     text-align: center;
     padding: 50px 20px;
     margin-top: 10px;
+    border-radius: 10px;
 }
 
 .banner h1 {
@@ -86,7 +88,7 @@ nav form button:hover {
     margin: 100px auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -147,6 +149,7 @@ button:hover {
     text-align: center;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    background-color: #abe871;
 }
 
 .product-box:hover {
@@ -171,4 +174,21 @@ button:hover {
 .product-box .stock {
     color: #888;
 }
+
+.news-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-box {
+  width: 30%;
+  height: 100vh;
+  background-color: #abe871;
+  margin: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+
 
