@@ -175,6 +175,24 @@ button:hover {
     color: #888;
 }
 
+.product-image-detail{
+display: flex;
+justify-content: center;
+align-items: center
+padding: 20px;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+height: auto;
+}
+
+.product-information {
+text-align: center
+align-items: center
+display: flex;
+padding: 20px
+}
+
 .news-container {
   display: flex;
   justify-content: space-between;

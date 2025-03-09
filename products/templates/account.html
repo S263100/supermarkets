@@ -11,12 +11,15 @@
 <nav>
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
-            <li><a class="active" href="{% url 'deals' %}">Deals</a></li>
-            <li><a class="active" href="{% url 'news' %}">News</a></li>
-            <li><a class="active" href="{% url 'account' %}">Account</a></li>
-            <li><a class="active" href="{% url 'support' %}">Support</a></li>
+            <li><a class="active" href="{% url 'products:deals' %}">Deals</a></li>
+            <li><a class="active" href="{% url 'products:news' %}">News</a></li>
+            <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+            <li><a class="active" href="{% url 'products:support' %}">Support</a></li>
+            <li><a class="button" href="{% url 'users:register' %}">Sign up</a></li>
+            <li><a class="button" href="{% url 'users:login' %}">Sign In</a></li>
         </ul>
-    <form method="get" action="{% url 'product_search' %}">
+
+    <form method="get" action="{% url 'products:product_search' %}">
             <input class="form-control me-2" type="search" placeholder="Search Products..." name="q" value="{{ query }}">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>

@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .models import Products
+from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import render
 
 # Create your views here.
 def home(request):
@@ -31,3 +34,7 @@ def product_search(request):
 def product_detail(request, product_name):
     product = get_object_or_404(Products, product_name=product_name)
     return render(request, 'product_detail.html', {'product': product})
+
+@login_required(login_url="/users/login/")
+def product_new(request):
+    return render(request, 'products/products_new.html')

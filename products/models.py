@@ -12,6 +12,7 @@ class Products(models.Model):
     product_category=models.CharField(max_length=64, default="")
     product_points=models.PositiveIntegerField(default=0)
     product_description=models.CharField(max_length=200, default="")
+    product_image=models.ImageField(default='fallback.png', blank=True)
 
     def __str__(self):
         return f"Product_id:{self.product_id},"\
@@ -20,7 +21,8 @@ class Products(models.Model):
                f"Product_Stock:{self.product_stock}" \
                f"Product_Category:{self.product_category}"\
                 f"Product_Points:{self.product_category}"\
-                f"Product_Description:{self.product_description}"
+                f"Product_Description:{self.product_description}"\
+                f"Product_Image:{self.product_image}"
 
 
 
