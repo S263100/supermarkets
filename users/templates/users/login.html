@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<nav>
+        <ul>
+            <li><a class="active" href="{% url 'home' %}">Home</a></li>
+            <li><a class="active" href="{% url 'products:deals' %}">Deals</a></li>
+            <li><a class="active" href="{% url 'products:news' %}">News</a></li>
+            <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+            <li><a class="active" href="{% url 'products:support' %}">Support</a></li>
+            <li><a class="button" href="{% url 'users:register' %}">Sign up</a></li>
+            <li><a class="button" href="{% url 'users:login' %}">Sign In</a></li>
+        </ul>
+
+    <form method="get" action="{% url 'products:product_search' %}">
+            <input class="form-control me-2" type="search" placeholder="Search Products..." name="q" value="{{ query }}">
+          </form>
+
+   <form class="logout" action="{% url 'users:logout' %}" method="post">
+            {% csrf_token %}
+    <button type="submit">Log out</button>
+          </form>
+    </nav>
+
+<h1>User Login</h1>
+<form class="form-with-validation" action="/users/login/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>Submit</button>
+</form>
+</body>
+</html>
