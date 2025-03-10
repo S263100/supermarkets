@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from .models import Products
 from django.contrib.auth.decorators import login_required
+from . import forms
 
 from django.shortcuts import render
 
@@ -10,6 +11,7 @@ def home(request):
     products = Products.objects.all()
     return render(request, 'home.html', {'products': products})
 
+@login_required(login_url="/users/login/")
 def account(request):
     return render(request, 'account.html')
 
@@ -37,4 +39,13 @@ def product_detail(request, product_name):
 
 @login_required(login_url="/users/login/")
 def product_new(request):
-    return render(request, 'products/products_new.html')
+    if request.method == 'POST':
+        form = forms.CreateProduct(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.user = request.user
+            product.save()
+            return redirect('products:home')
+    else:
+        form = forms.CreateProduct()
+    return render(request, 'products/products_new.html', { 'form': form })

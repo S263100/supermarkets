@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>New Product</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -14,6 +14,7 @@
             <li><a class="active" href="{% url 'products:deals' %}">Deals</a></li>
             <li><a class="active" href="{% url 'products:news' %}">News</a></li>
             <li><a class="active" href="{% url 'products:support' %}">Support</a></li>
+            <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
         </ul>
 
     <form method="get" action="{% url 'products:product_search' %}">
@@ -23,7 +24,6 @@
 
             {% if user.is_authenticated %}
 <ul>
-    <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
     <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
@@ -38,24 +38,11 @@
     </ul>
     </nav>
 
-<h1>Supermarket News</h1>
-
-
-<div class="news-container">
-    <div class="news-box">
-      <h2>News Headline 1</h2>
-      <p>Some description or content of the news article goes here. You can add more content as needed to make it a longer box.</p>
-    </div>
-
-    <div class="news-box">
-      <h2>News Headline 2</h2>
-      <p>Some description or content of the news article goes here. You can add more content as needed to make it a longer box.</p>
-    </div>
-
-    <div class="news-box">
-      <h2>News Headline 3</h2>
-      <p>Some description or content of the news article goes here. You can add more content as needed to make it a longer box.</p>
-    </div>
-  </div>
+    <h1>Add New Product</h1>
+    <form action="{% url 'products:new-product' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Add Product</button>
+</form>
 </body>
 </html>
