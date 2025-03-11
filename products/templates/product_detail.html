@@ -38,12 +38,20 @@
     </ul>
     </nav>
 
-<img class="product-image-detail" src="{{ product.product_image.url }}" alt="{{ product.product_name }} Image">
-
+<div class="product-detail-box">
 <div class="product-information">
-<h1>{{ product.product_name }}</h1>
-<p>{{ product.product_description }}</p>
+    <div class="image-box">
+<img class="product-image-detail" src="{{ product.product_image.url }}" alt="{{ product.product_name }} Image">
+</div>
+    <div class="product-text-box">
+    <h1>{{ product.product_name }}</h1>
 <p>Price: £{{ product.product_price }}</p>
+<p>Stock: {{ product.product_stock }}</p>
+<p>Points Per Purchase: {{ product.product_points }}</p>
+<p>{{ product.product_description }}</p>
+        <p>Category: {{ product.product_category }}</p>
+</div>
+    </div>
 </div>
 </body>
 </html>

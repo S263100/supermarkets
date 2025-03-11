@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-
 <nav>
         <ul>
             <li><a class="active" href="{% url 'home' %}">Home</a></li>
@@ -17,7 +16,7 @@
         </ul>
 
     <form method="get" action="{% url 'products:deal_product_search' %}">
-            <input class="form-control me-2" type="search" placeholder="Search Deals..." name="q" value="{{ query }}">
+            <input class="form-control me-2" type="search" placeholder="Search Products..." name="q" value="{{ query }}">
           </form>
 
 
@@ -38,28 +37,33 @@
     </ul>
     </nav>
 
-<h1>Supermarket Deals</h1>
+<h1>Products</h1>
+
+<div class="container mt-5">
+  <h2>Search Results for "{{ query }}"</h2>
 
 <div class="product-list">
-        {% for deal in deals_list %}
-            <div class="product-box">
-                <h2>{{ deal.deal_product_name }}</h2>
-                <div class="image-box">
-<img class="product-image-detail" src="{{ deal.deal_image.url }}" alt="{{ deal.deal_name }} Image">
-</div>
-                <p>Category: {{ deal.deal_category }}</p>
-                <p>Original Price: £{{ deal.deal_original_price }}</p>
-                <p>Reduced Price: £{{ deal.deal_new_price }}</p>
-                <p>Stock: {{ deal.deal_stock }}</p>
-                <p>Points Per Purchase: {{deal.deal_points}}</p>
-                <button onclick="window.location='{% url 'products:deal_product_detail' deal.deal_product_name %}'" class="btn btn-primary">
-    View Details
-</button>
-            </div>
-        {% empty %}
+        {% if deals_list %}
+            {% for deal in deals_list %}
+                <div class="product-box">
+                    <h2>{{ deal.deal_product_name }}</h2>
+                    <div class="image-box">
+                        <img class="product-image-detail" src="{{ deal.deal_image.url }}" alt="{{ deal.deal_name }} Image">
+                    </div>
+                    <p>Category: {{ deal.deal_category }}</p>
+                    <p>Original Price: £{{ deal.deal_original_price }}</p>
+                    <p>Reduced Price: £{{ deal.deal_new_price }}</p>
+                    <p>Stock: {{ deal.deal_stock }}</p>
+                    <p>Points Per Purchase: {{ deal.deal_points }}</p>
+                    <button onclick="window.location='{% url 'products:deal_product_detail' deal.deal_product_name %}'" class="btn btn-primary">
+                        View Details
+                    </button>
+                </div>
+            {% endfor %}
+        {% else %}
             <p>No deals available at the moment.</p>
-        {% endfor %}
+        {% endif %}
     </div>
-
+</div>
 </body>
 </html>

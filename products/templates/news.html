@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>News</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -22,8 +22,8 @@
 
 
             {% if user.is_authenticated %}
-    <ul>
-    <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
+<ul>
+    <li><a class="button" href="{% url 'products:new-news' %}">Create New News</a></li>
     <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
@@ -38,6 +38,19 @@
     </ul>
     </nav>
 
-<h1>Customer Support</h1>
+<h1>Supermarket News</h1>
+
+<div class="news-container">
+            {% for news in news_list %}
+    <div class="news-box">
+        <h2>{{ news.news_title }}</h2>
+        <p>{{ news.news_body }}</p>
+        <small>{{ news.news_date }}</small>
+    </div>
+{% empty %}
+    <p>No news available at the moment.</p>
+{% endfor %}
+</div>
+
 </body>
 </html>

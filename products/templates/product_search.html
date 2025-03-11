@@ -46,6 +46,9 @@
         {% for product in products %}
             <div class="product-box">
                 <h2>{{ product.product_name }}</h2>
+                <div class="image-box">
+<img class="product-image-detail" src="{{ product.product_image.url }}" alt="{{ product.product_name }} Image">
+</div>
                 <p>Category: {{ product.product_category }}</p>
                 <p>Price: ${{ product.product_price }}</p>
                 <p>Stock: {{ product.product_stock }}</p>

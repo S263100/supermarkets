@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
-from .models import Products
-from django.contrib.auth.decorators import login_required
+from .models import Products, Deals
+from .models import News
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import authenticate
+
 from . import forms
 
 from django.shortcuts import render
@@ -37,6 +40,29 @@ def product_detail(request, product_name):
     product = get_object_or_404(Products, product_name=product_name)
     return render(request, 'product_detail.html', {'product': product})
 
+def all_news(request):
+    news_list = News.objects.all().order_by('news_date')
+    return render(request, 'news.html', {'news_list': news_list})
+
+def all_deals(request):
+    deals_list = Deals.objects.all()
+    return render(request, 'deals.html', {'deals_list': deals_list})
+
+def deal_product_detail(request, deal_product_name):
+    deal = get_object_or_404(Deals, deal_product_name=deal_product_name, is_on_sale=True)
+    return render(request, 'deal_product_detail.html', {'deal': deal})
+
+
+def deal_product_search(request):
+    query = request.GET.get('q', '')
+    if query:
+        deals_list = Deals.objects.filter(Q(deal_product_name__icontains=query) | Q(deal_category__icontains=query))
+    else:
+        deals_list = Deals.objects.all()
+
+    return render(request, 'deal_product_search.html', {'deals_list': deals_list, 'query': query})
+
+@permission_required("products.new-product", login_url="/login", raise_exception=True)
 @login_required(login_url="/users/login/")
 def product_new(request):
     if request.method == 'POST':
@@ -49,3 +75,31 @@ def product_new(request):
     else:
         form = forms.CreateProduct()
     return render(request, 'products/products_new.html', { 'form': form })
+
+@permission_required("products.new-news", login_url="/login", raise_exception=True)
+@login_required(login_url="/users/login/")
+def new_news(request):
+    if request.method == 'POST':
+        form = forms.CreateNews(request.POST, request.FILES)
+        if form.is_valid():
+            news = form.save(commit=False)
+            news.user = request.user
+            news.save()
+            return redirect('products:news')
+    else:
+        form = forms.CreateNews()
+    return render(request, 'new_news.html', { 'form': form })
+
+@permission_required("products.new-deals", login_url="/login", raise_exception=True)
+@login_required(login_url="/users/login/")
+def new_deals(request):
+    if request.method == 'POST':
+        form = forms.CreateNews(request.POST, request.FILES)
+        if form.is_valid():
+            deals = form.save(commit=False)
+            deals.user = request.user
+            deals.save()
+            return redirect('products:deals')
+    else:
+        form = forms.CreateDeals()
+    return render(request, 'new_deals.html', { 'form': form })

@@ -22,8 +22,8 @@
 
 
             {% if user.is_authenticated %}
-    <ul>
-    <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
+<ul>
+    <li><a class="button" href="{% url 'products:new-deals' %}">Add New Deal</a></li>
     <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
@@ -38,6 +38,11 @@
     </ul>
     </nav>
 
-<h1>Customer Support</h1>
+<h1>Create News Post</h1>
+<form class="login-container" action="{% url 'products:new-deals' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Add Deal</button>
+</form>
 </body>
 </html>
