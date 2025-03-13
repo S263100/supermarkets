@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>News</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 
             {% if user.is_authenticated %}
 <ul>
-    {% if is_admin %}
+    {% if is_admin or is_employees %}
     <li><a class="button" href="{% url 'products:new-news' %}">Create New News</a></li>
     {% endif %}
     <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
@@ -41,7 +41,7 @@
     </nav>
 
 <div class="banner">
-        <h1>Welcome to Our Website!</h1>
+        <h1>Read about your Local Store!</h1>
     </div>
 
 

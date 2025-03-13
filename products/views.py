@@ -11,25 +11,32 @@ from . import forms
 from django.shortcuts import render
 
 # Create your views here.
-def home(request):
-    products = Products.objects.all()
-    is_admin = request.user.groups.filter(name="Admin").exists()
-    return render(request, 'home.html', {'products': products, 'is_admin': is_admin})
 
 @login_required(login_url="/users/login/")
 def account(request):
     is_admin = request.user.groups.filter(name="Admins").exists()
-    return render(request, 'account.html'), {'is_admin': is_admin}
+    is_employees = request.user.groups.filter(name="Employees").exists()
+    return render(request, 'account.html', {'is_admin': is_admin, 'is_employees': is_employees})
+
+def home(request):
+    products = Products.objects.all()
+    is_admin = request.user.groups.filter(name="Admin").exists()
+    is_employees = request.user.groups.filter(name="Employees").exists()
+    return render(request, 'home.html', {'products': products, 'is_admin': is_admin, 'is_employees': is_employees})
+
 
 def support(request):
     return render(request, 'support.html')
 
 def news(request):
     is_admin = request.user.groups.filter(name="Admin").exists()
-    return render(request, 'news.html', {'is_admin': is_admin})
+    is_employees = request.user.groups.filter(name="Employees").exists()
+    return render(request, 'news.html', {'is_admin': is_admin, 'is_employees': is_employees})
 
 def deals(request):
-    return render(request, 'deals.html')
+    is_admin = request.user.groups.filter(name="Admin").exists()
+    is_employees = request.user.groups.filter(name="Employees").exists()
+    return render(request, 'deals.html', {'is_admin': is_admin, 'is_employees': is_employees})
 
 def product_search(request):
     query = request.GET.get('q', '')
@@ -111,3 +118,4 @@ def new_deals(request):
     else:
         form = forms.CreateDeals()
     return render(request, 'new_deals.html', { 'form': form })
+
