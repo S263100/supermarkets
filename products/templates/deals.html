@@ -23,8 +23,10 @@
 
             {% if user.is_authenticated %}
 <ul>
+    {% if is_admin %}
     <li><a class="button" href="{% url 'products:new-deals' %}">Add New Deal</a></li>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    {% endif %}
+    <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
@@ -38,6 +40,10 @@
     </ul>
     </nav>
 
+<div class="banner">
+        <h1>Welcome to Our Website!</h1>
+    </div>
+
 <h1>Supermarket Deals</h1>
 
 <div class="product-list">
@@ -48,7 +54,7 @@
 <img class="product-image-detail" src="{{ deal.deal_image.url }}" alt="{{ deal.deal_name }} Image">
 </div>
                 <p>Category: {{ deal.deal_category }}</p>
-                <p>Original Price: £{{ deal.deal_original_price }}</p>
+                <p>Original Price: <del>£{{ deal.deal_original_price }}</del></p>
                 <p>Reduced Price: £{{ deal.deal_new_price }}</p>
                 <p>Stock: {{ deal.deal_stock }}</p>
                 <p>Points Per Purchase: {{deal.deal_points}}</p>

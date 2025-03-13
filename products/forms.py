@@ -18,3 +18,4 @@ class CreateDeals(forms.ModelForm):
         model = models.Deals
         fields = ['deal_id', 'deal_product_name','deal_original_price','deal_new_price','deal_category',
                   'deal_points', 'deal_description','deal_image']
+

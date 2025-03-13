@@ -23,7 +23,7 @@
             {% if user.is_authenticated %}
 <ul>
     <li><a class="button" href="{% url 'products:new-deals' %}">Add New Deal</a></li>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
@@ -51,7 +51,7 @@
                         <img class="product-image-detail" src="{{ deal.deal_image.url }}" alt="{{ deal.deal_name }} Image">
                     </div>
                     <p>Category: {{ deal.deal_category }}</p>
-                    <p>Original Price: £{{ deal.deal_original_price }}</p>
+                    <p>Original Price: <del>£{{ deal.deal_original_price }}</del>
                     <p>Reduced Price: £{{ deal.deal_new_price }}</p>
                     <p>Stock: {{ deal.deal_stock }}</p>
                     <p>Points Per Purchase: {{ deal.deal_points }}</p>

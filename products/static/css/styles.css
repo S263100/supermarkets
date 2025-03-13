@@ -74,6 +74,7 @@ nav form button:hover {
 
 .banner h1 {
     font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
@@ -87,7 +88,7 @@ nav form button:hover {
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #abe871;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -263,3 +264,53 @@ font-size: 40px;
 font-size: 22px;
 }
 
+.support-container {
+display: flex;
+gap: 20px;
+}
+
+.support-box {
+background-color: #abe871;
+height: 400px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 80%;
+max-width: 900px;
+margin: 80px auto;
+text-align: center;
+}
+
+.profile-container {
+background-color: #abe871;
+height: 400px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 80%;
+max-width: 900px;
+margin: 80px auto;
+text-align: center;
+
+
+.profile-card {
+    padding: 20px;
+}
+
+.profile-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+
+.profile-info p {
+    font-size: 18px;
+    color: #000;
+    margin: 10px 0;
+}
+
+.profile-info strong {
+    color: #000;
+}

@@ -23,8 +23,10 @@
 
             {% if user.is_authenticated %}
 <ul>
+    {% if is_admin %}
     <li><a class="button" href="{% url 'products:new-news' %}">Create New News</a></li>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    {% endif %}
+    <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
@@ -37,6 +39,11 @@
     {% endif %}
     </ul>
     </nav>
+
+<div class="banner">
+        <h1>Welcome to Our Website!</h1>
+    </div>
+
 
 <h1>Supermarket News</h1>
 

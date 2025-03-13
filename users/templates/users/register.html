@@ -41,7 +41,7 @@
 <div class="login-container">
 <form class="form-with-validation" action="/users/register/" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <button>Submit</button>
 </form>
 </div>

@@ -24,7 +24,7 @@
 
             {% if user.is_authenticated %}
 <ul>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    <li><a href="{% url 'users:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}

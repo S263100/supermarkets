@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -22,8 +23,10 @@
 
             {% if user.is_authenticated %}
 <ul>
+    {% if is_admin %}
     <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    {% endif %}
+    <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}

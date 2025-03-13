@@ -1,9 +1,9 @@
 from itertools import product
+from symtable import Class
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
-
-
 
 # Create your models here.
 class Products(models.Model):
@@ -46,7 +46,6 @@ class Deals(models.Model):
     deal_category = models.CharField(max_length=64, default="")
     deal_points = models.PositiveIntegerField(default=0)
     deal_description = models.TextField(default="")
-    deal_image = models.ImageField(default='fallback.png', blank=True)
     deal_image = models.ImageField(default='fallback.png', blank=True)
     is_on_sale = models.BooleanField(default=False)
 

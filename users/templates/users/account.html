@@ -22,8 +22,9 @@
 
 
             {% if user.is_authenticated %}
-    <ul>
-    <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
+<ul>
+    <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
+    <li><a class="active" href="{% url 'users:edit_profile' %}">Edit Profile</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
@@ -37,27 +38,20 @@
     </ul>
     </nav>
 
-<div class="banner">
-        <h1>Customer Support</h1>
-    </div>
-
-<div class="support-container">
-        <div class="support-box">
-            <h2>Need Help?</h2>
-            <H3>General Questions</H3>
-            <P>What are your shop hours?</P>
-            <P>How can I place an online order?</P>
-            <P>How do I return an item?</P>
-
-            <h4>Contact Details</h4>
-            <p>Customer Service Number: 08943 385673</p>
-            <P>Write to us: Hallmart Groceries</P>
-            <p>123 Fake Street
-            Faketown, XYZ 12345
-            Country: Wonderland</p>
-        </div>
-    </div>
-
-
+<h1>Customer Profile</h1>
+<div class="profile-container">
+    <div class="profile-card">
+        <h2>Profile Information</h2>
+        <div class="profile-info">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+    <p><strong>Gender:</strong> {{ profile.gender }}</p>
+</div>
+</div>
+</div>
 </body>
 </html>

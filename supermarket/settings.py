@@ -136,3 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 APPEND_SLASH = True
+
+AUTH_PROFILE_MODULE = "account.UserProfile"

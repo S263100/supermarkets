@@ -24,7 +24,7 @@
             {% if user.is_authenticated %}
 <ul>
     <li><a class="button" href="{% url 'products:new-product' %}">Add New Product</a></li>
-    <li><a class="active" href="{% url 'products:account' %}">Account</a></li>
+    <li><a class="active" href="{% url 'users:edit_profile' %}">Edit Profile</a></li>
 </ul>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
