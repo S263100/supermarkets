@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
             {% if user.is_authenticated %}
 <ul>
     {% if is_admin or is_employees %}
+
     <li><a class="button" href="{% url 'products:new-deals' %}">Add New Deal</a></li>
 {% endif %}
     <li><a class="active" href="{% url 'users:account' %}">Account</a></li>

@@ -3,8 +3,8 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>News</title>
-    <link href="{% static 'css/styles.css' %}">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 
             {% if user.is_authenticated %}
 <ul>
-    {% if is_admin or is_employees %}
+    {% if is_admin %}
     <li><a class="button" href="{% url 'products:new-news' %}">Create New News</a></li>
     {% endif %}
     <li><a class="active" href="{% url 'users:account' %}">Account</a></li>
