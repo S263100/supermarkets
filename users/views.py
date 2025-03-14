@@ -45,7 +45,7 @@ def login_view(request):
     return render(request, "users/login.html", {"form": form})
 
 def profile_view(request):
-    profile_instance = Profile.objects.get(user=request.user)
+    profile_instance = Profile.objects.get_or_create(user=request.user)
 
     is_admin = request.user.groups.filter(name="Admin").exists()
     return render(request, "users/account.html", {"user": request.user,
